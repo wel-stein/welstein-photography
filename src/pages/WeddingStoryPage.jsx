@@ -18,6 +18,7 @@ const projects = [
   { slug: 'wedding',                    title: 'Yin Xuan & Yong Shen',   folder: 'yin-xuan-yong-shen-wedding', count: 5  },
   { slug: 'kelvin-shi-yun-wedding',     title: 'Kelvin & Shi Yun',       folder: 'kelvin-shi-yun-wedding',     count: 5  },
   { slug: 'ping-fiona-wedding',         title: 'Ping & Fiona',           folder: 'ping-fiona-wedding',         count: 6  },
+  { slug: 'outdoor-portrait',           title: 'Outdoor & Portrait',     folder: 'outdoor-portrait',           count: 32, category: 'PORTRAIT' },
 ]
 
 function imgPath(folder, n) {
@@ -70,7 +71,7 @@ export default function WeddingStoryPage() {
           />
           <div className="absolute inset-0 z-20 flex flex-col justify-center items-center text-center px-4">
             <span className="font-label-sm text-label-sm tracking-[0.3em] uppercase mb-6 opacity-80">
-              WEDDING
+              {project.category || 'WEDDING'}
             </span>
             <h1 className="font-display-lg text-display-lg-mobile md:text-display-lg mb-4 text-white uppercase">
               {title}

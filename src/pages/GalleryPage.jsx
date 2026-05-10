@@ -17,7 +17,8 @@ const galleryItems = [
   { slug: 'keng-long-alice-wedding',    aspect: 'aspect-[3/4]',   colSpan: '',              src: '/gallery/keng-long-alice-wedding/01.jpg',    category: 'Wedding', title: 'Keng Long & Alice' },
   { slug: 'wedding',                    aspect: 'aspect-video',   colSpan: 'lg:col-span-2', src: '/gallery/yin-xuan-yong-shen-wedding/01.jpg', category: 'Wedding', title: 'Yin Xuan & Yong Shen' },
   { slug: 'kelvin-shi-yun-wedding',     aspect: 'aspect-[4/5]',   colSpan: '',              src: '/gallery/kelvin-shi-yun-wedding/01.jpg',     category: 'Wedding', title: 'Kelvin & Shi Yun' },
-  { slug: 'ping-fiona-wedding',         aspect: 'aspect-[4/5]',   colSpan: 'lg:col-span-2', src: '/gallery/ping-fiona-wedding/01.jpg',         category: 'Wedding', title: 'Ping & Fiona' },
+  { slug: 'ping-fiona-wedding',         aspect: 'aspect-[4/5]',   colSpan: 'lg:col-span-2', src: '/gallery/ping-fiona-wedding/01.jpg',         category: 'Wedding',  title: 'Ping & Fiona' },
+  { slug: 'outdoor-portrait',           aspect: 'aspect-video',   colSpan: 'lg:col-span-2', src: '/gallery/outdoor-portrait/01.jpg',            category: 'Portrait', title: 'Outdoor & Portrait' },
 ]
 
 export default function GalleryPage() {

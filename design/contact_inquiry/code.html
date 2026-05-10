@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#131313",
+                    "inverse-primary": "#5d5f5f",
+                    "outline-variant": "#444748",
+                    "on-tertiary-fixed": "#1a1c19",
+                    "tertiary-fixed-dim": "#c6c7c2",
+                    "on-secondary": "#3c2f00",
+                    "inverse-on-surface": "#313030",
+                    "surface-container-highest": "#353535",
+                    "background": "#131313",
+                    "on-tertiary-fixed-variant": "#454744",
+                    "surface-bright": "#393939",
+                    "on-secondary-fixed-variant": "#574500",
+                    "error-container": "#93000a",
+                    "surface-container-high": "#2a2a2a",
+                    "inverse-surface": "#e5e2e1",
+                    "on-secondary-container": "#342800",
+                    "on-primary": "#2f3131",
+                    "surface-tint": "#c6c6c7",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-primary-fixed-variant": "#454747",
+                    "secondary": "#e9c349",
+                    "primary-fixed": "#e2e2e2",
+                    "surface-container-low": "#1b1b1b",
+                    "primary-container": "#e2e2e2",
+                    "surface-container": "#20201f",
+                    "on-error": "#690005",
+                    "outline": "#8e9192",
+                    "on-tertiary-container": "#636561",
+                    "on-tertiary": "#2f312e",
+                    "surface": "#131313",
+                    "primary-fixed-dim": "#c6c6c7",
+                    "secondary-container": "#af8d11",
+                    "tertiary": "#ffffff",
+                    "tertiary-fixed": "#e3e3de",
+                    "on-primary-fixed": "#1a1c1c",
+                    "on-background": "#e5e2e1",
+                    "surface-variant": "#353535",
+                    "on-surface-variant": "#c4c7c8",
+                    "on-surface": "#e5e2e1",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary-fixed": "#241a00",
+                    "on-primary-container": "#636565",
+                    "error": "#ffb4ab",
+                    "primary": "#ffffff",
+                    "tertiary-container": "#e3e3de",
+                    "secondary-fixed-dim": "#e9c349",
+                    "secondary-fixed": "#ffe088"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1440px",
+                    "stack-md": "4rem",
+                    "stack-lg": "8rem",
+                    "stack-sm": "2rem",
+                    "margin-x": "4rem",
+                    "gutter": "2rem"
+            },
+            "fontFamily": {
+                    "label-sm": ["manrope"],
+                    "headline-sm": ["playfairDisplay"],
+                    "headline-md": ["playfairDisplay"],
+                    "display-lg": ["playfairDisplay"],
+                    "body-md": ["manrope"],
+                    "body-lg": ["manrope"],
+                    "display-lg-mobile": ["playfairDisplay"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "400"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "300"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .backdrop-blur-xl {
+            backdrop-filter: blur(20px);
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none !important;
+            box-shadow: none !important;
+            border-color: #ffffff !important;
+        }
+        .form-underline {
+            border: none;
+            border-bottom: 1px solid rgba(245, 245, 240, 0.15);
+            background: transparent;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header class="fixed top-0 z-50 w-full bg-surface/90 backdrop-blur-xl transition-all ease-in-out duration-500">
+<nav class="flex justify-between items-center w-full px-margin-x py-8 max-w-container-max mx-auto">
+<div class="font-label-sm text-label-sm tracking-[0.2em] uppercase text-on-surface">
+                WELSTEIN PHOTOGRAPHY
+            </div>
+<div class="hidden md:flex items-center gap-8">
+<a class="hover:text-primary transition-colors duration-500 text-on-surface/60 font-label-sm text-label-sm" href="#">WEDDING</a>
+<a class="hover:text-primary transition-colors duration-500 text-on-surface/60 font-label-sm text-label-sm" href="#">GALLERY</a>
+<a class="hover:text-primary transition-colors duration-500 text-on-surface/60 font-label-sm text-label-sm" href="#">INVESTMENT</a>
+<a class="text-primary border-b border-secondary pb-1 font-label-sm text-label-sm" href="#">CONTACT</a>
+</div>
+<button class="md:hidden">
+<span class="material-symbols-outlined text-on-surface">menu</span>
+</button>
+</nav>
+</header>
+<main class="pt-[160px]">
+<!-- Page Title -->
+<section class="px-margin-x mb-stack-md max-w-container-max mx-auto">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-center md:text-left mb-4">The Inquire</h1>
+<p class="font-body-lg text-body-lg text-on-surface/60 max-w-2xl">
+                Telling your story through a lens of timeless elegance. We are honored to document your most intimate moments. 
+            </p>
+</section>
+<!-- Content Grid: Form & Artist Blurb -->
+<section class="px-margin-x max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter pb-stack-lg">
+<!-- Inquiry Form -->
+<div class="md:col-span-7 lg:col-span-8">
+<form class="flex flex-col gap-10">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+<!-- Field Group -->
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm uppercase text-on-surface/40">Your Full Name</label>
+<input class="form-underline py-3 font-body-md text-body-md text-on-surface placeholder:text-on-surface/10" placeholder="ALEXANDER SMITH" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm uppercase text-on-surface/40">Partner's Full Name</label>
+<input class="form-underline py-3 font-body-md text-body-md text-on-surface placeholder:text-on-surface/10" placeholder="JULIA BENNETT" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm uppercase text-on-surface/40">Email Address</label>
+<input class="form-underline py-3 font-body-md text-body-md text-on-surface placeholder:text-on-surface/10" placeholder="HELLO@EXAMPLE.COM" type="email"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm uppercase text-on-surface/40">Wedding Date</label>
+<input class="form-underline py-3 font-body-md text-body-md text-on-surface placeholder:text-on-surface/10" placeholder="JUNE 12, 2025" type="text"/>
+</div>
+<div class="flex flex-col gap-2 md:col-span-2">
+<label class="font-label-sm text-label-sm uppercase text-on-surface/40">Venue &amp; Location</label>
+<input class="form-underline py-3 font-body-md text-body-md text-on-surface placeholder:text-on-surface/10" placeholder="VILLA D'ESTE, LAKE COMO" type="text"/>
+</div>
+<div class="flex flex-col gap-2 md:col-span-2">
+<label class="font-label-sm text-label-sm uppercase text-on-surface/40">How did you hear about us?</label>
+<select class="form-underline py-3 font-body-md text-body-md text-on-surface bg-surface appearance-none">
+<option class="bg-surface">INSTAGRAM</option>
+<option class="bg-surface">FRIEND OR FAMILY</option>
+<option class="bg-surface">WEDDING PLANNER</option>
+<option class="bg-surface">EDITORIAL / BLOG</option>
+</select>
+</div>
+<div class="flex flex-col gap-2 md:col-span-2">
+<label class="font-label-sm text-label-sm uppercase text-on-surface/40">Tell us about your day</label>
+<textarea class="form-underline py-3 font-body-md text-body-md text-on-surface placeholder:text-on-surface/10 resize-none" placeholder="DESCRIBE YOUR VISION, THE MOOD, AND WHAT MATTERS MOST TO YOU..." rows="4"></textarea>
+</div>
+</div>
+<div class="mt-4">
+<button class="border border-on-surface/30 px-12 py-4 font-label-sm text-label-sm uppercase transition-all duration-500 hover:bg-on-surface hover:text-surface" type="submit">
+                            SEND INQUIRY
+                        </button>
+</div>
+</form>
+</div>
+<!-- About the Artist Sidebar -->
+<div class="md:col-span-5 lg:col-span-4 mt-stack-md md:mt-0">
+<div class="flex flex-col gap-stack-sm sticky top-[160px]">
+<div class="relative aspect-[4/5] overflow-hidden grayscale">
+<img alt="Portrait of the artist" class="object-cover w-full h-full" data-alt="A sophisticated black and white portrait of a professional female photographer holding a vintage Leica camera. She is standing in a dimly lit, minimalist studio with subtle directional lighting that creates elegant highlights on her face. The mood is artistic and deeply cinematic, focusing on a refined, high-end editorial aesthetic. Her expression is calm and confident, embodying the premium and timeless nature of the Welstein brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzoDgl_e-nz_NsGeclTQJ_IHSpuRzboxrttGM2ip27Kkw4f_yzR-_hFvTlZEuU4sc7vsE6tR3HhHf9W-yOyd8J7rOqonR_J9A4WUHs67mR54BALZU9T0UY3a4dAmMutxDe4wTbxTem3LqdA5nGqGBeMWp8HBBU1JM1CWNTVU_SYKX5pQZJa9GSmsR6hKJukhPmXMYvFa4K6nKBLLDKCOUWEIw2JnYJ53s0U4Waa7SENPQwZuANJKhugdBfWFQxE_Oe9IwatkFINUCI"/>
+<div class="absolute inset-0 border-[1.5rem] border-surface/10 pointer-events-none"></div>
+</div>
+<div class="flex flex-col gap-4">
+<h3 class="font-headline-sm text-headline-sm">Meet Julian Welstein</h3>
+<p class="font-body-md text-body-md text-on-surface/70 leading-relaxed">
+                            I believe in the beauty of the quiet moments. My approach is observational yet intentional, seeking the atmospheric light and genuine connections that make your wedding day uniquely yours. 
+                        </p>
+<p class="font-body-md text-body-md text-on-surface/70 leading-relaxed">
+                            Based in Paris, available for commissions worldwide.
+                        </p>
+<div class="pt-4 border-t border-outline-variant/10 flex flex-col gap-2">
+<p class="font-label-sm text-label-sm text-on-surface/40">OFFICE HOURS</p>
+<p class="font-label-sm text-label-sm">MON — FRI, 10AM — 6PM CET</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="border-t border-outline-variant/10 transition-opacity duration-300">
+<div class="flex flex-col items-center gap-stack-sm w-full py-stack-md px-margin-x max-w-container-max mx-auto">
+<div class="font-label-sm text-label-sm text-on-surface">
+                WELSTEIN PHOTOGRAPHY
+            </div>
+<div class="flex gap-8">
+<a class="hover:text-on-surface transition-colors duration-500 text-on-surface/40 font-label-sm text-label-sm" href="#">INSTAGRAM</a>
+<a class="hover:text-on-surface transition-colors duration-500 text-on-surface/40 font-label-sm text-label-sm" href="#">FACEBOOK</a>
+<a class="hover:text-on-surface transition-colors duration-500 text-on-surface/40 font-label-sm text-label-sm" href="#">PINTEREST</a>
+</div>
+<div class="font-label-sm text-label-sm text-on-surface/40 mt-4">
+                COPYRIGHT © 2024 WELSTEIN PHOTOGRAPHY. ALL RIGHTS RESERVED
+            </div>
+</div>
+</footer>
+</body></html>

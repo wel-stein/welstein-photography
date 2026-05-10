@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
 const links = [
-  { label: 'WEDDING',    to: '/wedding-story' },
   { label: 'GALLERY',    to: '/' },
   { label: 'INVESTMENT', to: '/services' },
   { label: 'CONTACT',    to: '/contact' },

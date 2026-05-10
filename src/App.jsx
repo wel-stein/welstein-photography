@@ -10,7 +10,7 @@ export default function App() {
       <Route path="/" element={<GalleryPage />} />
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/services" element={<ServicesPage />} />
-      <Route path="/wedding-story" element={<WeddingStoryPage />} />
+      <Route path="/gallery/:id" element={<WeddingStoryPage />} />
     </Routes>
   )
 }

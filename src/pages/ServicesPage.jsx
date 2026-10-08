@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
@@ -21,33 +22,31 @@ const faqs = [
   },
 ]
 
-const collections = [
+const packages = [
   {
-    number: 'COLLECTION I',
-    name: 'Essential',
-    subtitle: 'FOR INTIMATE CELEBRATIONS',
-    price: '€3,500',
-    features: ['6 Hours Coverage', 'Lead Photographer', '400+ Edited Images', 'Online Gallery'],
-    highlighted: false,
-    badge: null,
-  },
-  {
-    number: 'COLLECTION II',
-    name: 'Premiere',
-    subtitle: 'THE STANDARD EXPERIENCE',
-    price: '€5,200',
-    features: ['10 Hours Coverage', 'Two Photographers', '700+ Edited Images', 'Engagement Session', 'Fine Art Print Box'],
+    number: 'PACKAGE I',
+    name: 'Full-Day Coverage',
+    price: 'RM1,700',
+    features: [
+      '10 hours of coverage',
+      'Estimated 500–600 photographs',
+      'Every photograph adjusted for color and brightness',
+      'All photographs delivered in soft copy',
+      'Photo montage of the morning session, shown during dinner',
+    ],
     highlighted: true,
-    badge: 'MOST REFINED',
   },
   {
-    number: 'COLLECTION III',
-    name: 'Legacy',
-    subtitle: 'FOR MULTI-DAY EVENTS',
-    price: 'FROM €8,500',
-    features: ['Full Weekend Coverage', 'Two Photographers', 'High-Res Digital Archive', 'Rehearsal Dinner', 'Handcrafted Heirloom Album'],
+    number: 'PACKAGE II',
+    name: 'Half-Day Coverage',
+    price: 'RM500',
+    features: [
+      '5 hours of coverage',
+      'Estimated 200–400 photographs, depending on the events',
+      'Every photograph adjusted for color and brightness',
+      'All photographs delivered in soft copy',
+    ],
     highlighted: false,
-    badge: null,
   },
 ]
 
@@ -60,8 +59,8 @@ export default function ServicesPage() {
       <main className="pt-32">
         {/* Hero Header */}
         <header className="px-margin-x max-w-container-max mx-auto mb-stack-lg">
-          <div className="grid grid-cols-12 gap-gutter items-end">
-            <div className="col-span-12 md:col-span-7">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter items-end">
+            <div className="md:col-span-7">
               <h1 className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-stack-sm">
                 Artistry in Every <br />
                 <span className="italic text-on-surface/60">Quiet Moment.</span>
@@ -75,8 +74,8 @@ export default function ServicesPage() {
 
         {/* The Experience Section */}
         <section className="px-margin-x max-w-container-max mx-auto mb-stack-lg">
-          <div className="grid grid-cols-12 gap-gutter items-center">
-            <div className="col-span-12 md:col-span-6 mb-stack-sm md:mb-0">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+            <div className="md:col-span-6 mb-stack-sm md:mb-0">
               <div className="matted-image">
                 <img
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnR2ywqsVB_PZRVt-cIRx0e7GJJ47JoBmM0vOgzoww_XRbVnSYkn-MFR-QekdCiRgz71vv0F7V4pzr4LvwefealOCpADRNf7NW-ttvqHaqkZv_FKdXPOtCFK6lTyGooSTz1zeFiZ_5zyE1XKXXbfP3OPp59tL0LnXSKzSYRjkz9pjYzUAZxsI7Ud1ldRny0uPF80xNIKDyv6OBMJ0dGnyYsHX0pls_dRmzMTeDytdxnL2rRNmauyFfzyIajt6H4xvJgZV9yTyYsU15"
@@ -86,7 +85,7 @@ export default function ServicesPage() {
               </div>
             </div>
 
-            <div className="col-span-12 md:col-span-5 md:col-start-8">
+            <div className="md:col-span-5 md:col-start-8">
               <h2 className="font-label-sm text-label-sm text-secondary mb-4">THE EXPERIENCE</h2>
               <h3 className="font-headline-md text-headline-md mb-stack-sm">A Deliberate Process</h3>
               <div className="space-y-gutter">
@@ -118,47 +117,42 @@ export default function ServicesPage() {
           <div className="px-margin-x max-w-container-max mx-auto">
             <div className="text-center mb-stack-md">
               <h2 className="font-label-sm text-label-sm text-secondary mb-4">INVESTMENT</h2>
-              <h3 className="font-headline-md text-headline-md">Photography Collections</h3>
+              <h3 className="font-headline-md text-headline-md">Photography Packages</h3>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter items-start">
-              {collections.map((col) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-gutter max-w-4xl mx-auto">
+              {packages.map((pkg) => (
                 <div
-                  key={col.name}
+                  key={pkg.name}
                   className={`p-stack-sm flex flex-col transition-all duration-500 relative ${
-                    col.highlighted
-                      ? 'border border-on-surface/20 bg-surface-container-highest scale-105 shadow-2xl z-10'
+                    pkg.highlighted
+                      ? 'border border-on-surface/20 bg-surface-container-highest md:scale-105 shadow-2xl z-10'
                       : 'border border-outline-variant/10 hover:border-on-surface/20 bg-surface'
                   }`}
                 >
-                  {col.badge && (
-                    <div className="absolute top-0 right-0 p-4 font-label-sm text-[10px] text-secondary tracking-widest">
-                      {col.badge}
-                    </div>
-                  )}
-                  <span className="font-label-sm text-label-sm text-on-surface/40 mb-2">{col.number}</span>
-                  <h4 className="font-headline-sm text-headline-sm mb-4">{col.name}</h4>
-                  <p className="font-label-sm text-label-sm text-on-surface/60 mb-stack-sm">{col.subtitle}</p>
+                  <span className="font-label-sm text-label-sm text-on-surface/40 mb-2">{pkg.number}</span>
+                  <h4 className="font-headline-sm text-headline-sm mb-stack-sm">{pkg.name}</h4>
                   <div className="flex-grow">
                     <ul className="space-y-4 font-body-md text-body-md text-on-surface/70 mb-stack-sm">
-                      {col.features.map((f) => (
-                        <li key={f} className="flex items-center gap-2">
-                          <span className="material-symbols-outlined text-secondary">check</span>
+                      {pkg.features.map((f) => (
+                        <li key={f} className="flex items-start gap-2">
+                          <span className="material-symbols-outlined text-secondary flex-shrink-0">check</span>
                           {f}
                         </li>
                       ))}
                     </ul>
                   </div>
                   <div className="pt-8 border-t border-outline-variant/10">
-                    <p className="font-headline-sm text-headline-sm mb-6">{col.price}</p>
-                    <button
-                      className={`w-full py-4 text-label-sm font-label-sm transition-all duration-300 ${
-                        col.highlighted
+                    <p className="font-headline-sm text-headline-sm mb-6">{pkg.price}</p>
+                    <Link
+                      to="/contact"
+                      className={`block w-full py-4 text-center text-label-sm font-label-sm transition-all duration-300 ${
+                        pkg.highlighted
                           ? 'bg-on-surface text-surface hover:bg-secondary hover:text-on-secondary'
                           : 'border border-on-surface hover:bg-on-surface hover:text-surface'
                       }`}
                     >
                       INQUIRE
-                    </button>
+                    </Link>
                   </div>
                 </div>
               ))}
@@ -168,12 +162,12 @@ export default function ServicesPage() {
 
         {/* FAQ Accordion */}
         <section className="px-margin-x max-w-container-max mx-auto py-stack-lg">
-          <div className="grid grid-cols-12 gap-gutter">
-            <div className="col-span-12 md:col-span-4">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+            <div className="md:col-span-4">
               <h2 className="font-label-sm text-label-sm text-secondary mb-4">FAQ</h2>
               <h3 className="font-headline-md text-headline-md">Common Inquiries</h3>
             </div>
-            <div className="col-span-12 md:col-span-8">
+            <div className="md:col-span-8">
               <div className="space-y-4">
                 {faqs.map((faq, i) => (
                   <div key={i} className="border-b border-outline-variant/20 pb-4">

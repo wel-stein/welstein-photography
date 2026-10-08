@@ -58,7 +58,7 @@ export default function WeddingStoryPage() {
         {/* Breadcrumb */}
         <div className="fixed top-[88px] left-0 right-0 z-40 px-margin-x max-w-container-max mx-auto py-3">
           <nav className="flex items-center gap-2 font-label-sm text-label-sm text-on-surface/40">
-            <Link to="/" className="hover:text-primary transition-colors duration-300 uppercase">
+            <Link to="/gallery" className="hover:text-primary transition-colors duration-300 uppercase">
               Gallery
             </Link>
             <span className="material-symbols-outlined text-[14px]">chevron_right</span>

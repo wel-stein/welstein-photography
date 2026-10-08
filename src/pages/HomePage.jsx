@@ -25,7 +25,7 @@ const experience = [
   {
     number: 'III',
     title: 'THE COLLECTION',
-    text: 'Every frame is hand-edited in our signature cinematic style and delivered in a private online gallery.',
+    text: 'Every photograph is adjusted for color and brightness and delivered to you in soft copy.',
   },
 ]
 
@@ -183,7 +183,7 @@ export default function HomePage() {
                 to="/services"
                 className="inline-block px-12 py-4 border border-on-surface text-on-surface font-label-sm text-label-sm tracking-widest hover:bg-on-surface hover:text-surface transition-all duration-500"
               >
-                VIEW COLLECTIONS
+                VIEW PACKAGES
               </Link>
             </div>
           </div>

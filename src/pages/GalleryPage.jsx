@@ -31,7 +31,7 @@ export default function GalleryPage() {
             href="/contact"
             className="inline-block px-12 py-4 border border-on-surface text-on-surface font-label-sm text-label-sm uppercase hover:bg-on-surface hover:text-surface transition-all duration-500 ease-in-out"
           >
-            Inquire for 2025
+            Inquire About Your Date
           </a>
         </div>
       </main>

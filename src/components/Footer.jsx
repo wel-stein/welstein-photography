@@ -28,7 +28,7 @@ export default function Footer() {
         </div>
 
         <p className="font-label-sm text-label-sm text-on-surface/40 text-center uppercase mt-4">
-          COPYRIGHT © 2024 WELSTEIN PHOTOGRAPHY. ALL RIGHTS RESERVED
+          COPYRIGHT © {new Date().getFullYear()} WELSTEIN PHOTOGRAPHY. ALL RIGHTS RESERVED
         </p>
       </div>
     </footer>

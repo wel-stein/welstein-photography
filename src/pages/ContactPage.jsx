@@ -1,137 +1,182 @@
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import { WHATSAPP_NUMBER, WHATSAPP_DISPLAY, FACEBOOK_URL } from '../data/contact'
+
+const textFields = [
+  { name: 'name',    label: 'Your Name',        placeholder: 'YOUR FULL NAME', required: true },
+  { name: 'partner', label: "Partner's Name",   placeholder: "YOUR PARTNER'S FULL NAME" },
+  { name: 'email',   label: 'Email Address',    placeholder: 'HELLO@EXAMPLE.COM', type: 'email' },
+  { name: 'date',    label: 'Wedding Date',     placeholder: `E.G. JUNE 12, ${new Date().getFullYear() + 1}` },
+  { name: 'venue',   label: 'Venue & Location', placeholder: 'HOTEL OR BANQUET HALL, CITY', wide: true },
+]
+
+const selectFields = [
+  {
+    name: 'package',
+    label: 'Package of Interest',
+    options: ['Full-Day Coverage (RM1,700)', 'Half-Day Coverage (RM500)', 'Not sure yet'],
+  },
+  {
+    name: 'source',
+    label: 'How did you hear about us?',
+    options: ['Facebook', 'Friend or family', 'Wedding planner or vendor', 'Google search', 'Other'],
+  },
+]
+
+// Order and labels of the lines in the WhatsApp message
+const messageLines = [
+  ['name', 'Name'],
+  ['partner', 'Partner'],
+  ['email', 'Email'],
+  ['date', 'Wedding date'],
+  ['venue', 'Venue'],
+  ['package', 'Package'],
+  ['source', 'Heard about us via'],
+  ['message', 'About our day'],
+]
+
+const inputClass =
+  'form-underline w-full py-3 font-body-md text-body-md text-on-surface placeholder:text-on-surface/30'
+const labelClass = 'font-label-sm text-label-sm uppercase text-on-surface/50'
+
+function handleSubmit(e) {
+  e.preventDefault()
+  const data = new FormData(e.currentTarget)
+  const details = messageLines
+    .map(([key, label]) => {
+      const value = (data.get(key) || '').trim()
+      return value && `${label}: ${value}`
+    })
+    .filter(Boolean)
+  const text = ["Hi Welstein Photography, I'd like to inquire about wedding photography.", '', ...details].join('\n')
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer')
+}
 
 export default function ContactPage() {
   return (
-    <div className="bg-surface text-on-surface min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+    <div className="bg-surface text-on-surface min-h-screen selection:bg-secondary selection:text-on-secondary">
       <Navbar />
-      <main className="pt-[160px]">
-        <section className="px-margin-x mb-stack-md max-w-container-max mx-auto">
-          <h1 className="font-display-lg text-display-lg-mobile md:text-display-lg text-center md:text-left mb-4">
-            The Inquire
-          </h1>
-          <p className="font-body-lg text-body-lg text-on-surface/60 max-w-2xl">
-            Telling your story through a lens of timeless elegance. We are honored to document your most intimate moments.
-          </p>
-        </section>
+      <main className="md:grid md:grid-cols-2 lg:grid-cols-12">
+        {/* Photo panel with bio, pinned while the form scrolls */}
+        <aside className="relative h-[75vh] min-h-[560px] md:h-screen md:sticky md:top-0 lg:col-span-5 overflow-hidden">
+          <img
+            src="/gallery/charles-fiona-wedding/09.jpg"
+            alt="Bride and groom walking hand in hand"
+            className="absolute inset-0 w-full h-full object-cover grayscale"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/50 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 px-6 md:px-12 pb-stack-sm md:pb-stack-md">
+            <h2 className="font-label-sm text-label-sm text-secondary mb-4">THE PHOTOGRAPHER</h2>
+            <p className="font-headline-sm text-headline-sm italic text-white mb-4 max-w-md">
+              I&rsquo;m drawn to the quiet, in-between moments of a wedding day.
+            </p>
+            <p className="font-body-md text-body-md text-on-surface/70 max-w-md mb-6">
+              A held glance, a parent&rsquo;s embrace, light falling just right. I observe rather than direct, so your photographs feel honest, natural and unmistakably yours.
+            </p>
+            <p className="inline-flex items-center gap-2 font-label-sm text-label-sm tracking-widest text-on-surface/80">
+              <span className="material-symbols-outlined text-[18px] text-secondary">location_on</span>
+              BASED IN JOHOR BAHRU, MALAYSIA
+            </p>
+          </div>
+        </aside>
 
-        <section className="px-margin-x max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter pb-stack-lg">
-          <div className="md:col-span-7 lg:col-span-8">
-            <form className="flex flex-col gap-10" onSubmit={(e) => e.preventDefault()}>
+        {/* Inquiry */}
+        <section className="lg:col-span-7 px-6 md:px-12 lg:px-stack-md pt-stack-md md:pt-40 pb-stack-lg">
+          <div className="max-w-2xl">
+            <h1 className="font-label-sm text-label-sm text-secondary mb-4">INQUIRE</h1>
+            <p className="font-display-lg text-display-lg-mobile md:text-display-lg mb-6">
+              Let&rsquo;s tell <span className="italic text-on-surface/60">your story.</span>
+            </p>
+            <p className="font-body-lg text-body-lg text-on-surface/60 mb-stack-md">
+              Share a few details about your celebration. When you press send, WhatsApp opens with everything filled in, so we can continue the conversation there.
+            </p>
+
+            <form className="flex flex-col gap-10" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
-                <div className="flex flex-col gap-2">
-                  <label className="font-label-sm text-label-sm uppercase text-on-surface/40">
-                    Your Full Name
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="ALEXANDER SMITH"
-                    className="form-underline py-3 font-body-md text-body-md text-on-surface placeholder:text-on-surface/10"
-                  />
-                </div>
+                {textFields.map((f) => (
+                  <div key={f.name} className={`flex flex-col gap-2 ${f.wide ? 'md:col-span-2' : ''}`}>
+                    <label htmlFor={f.name} className={labelClass}>
+                      {f.label}
+                      {f.required && <span className="text-secondary"> *</span>}
+                    </label>
+                    <input
+                      id={f.name}
+                      name={f.name}
+                      type={f.type || 'text'}
+                      required={f.required}
+                      placeholder={f.placeholder}
+                      className={inputClass}
+                    />
+                  </div>
+                ))}
 
-                <div className="flex flex-col gap-2">
-                  <label className="font-label-sm text-label-sm uppercase text-on-surface/40">
-                    Partner's Full Name
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="JULIA BENNETT"
-                    className="form-underline py-3 font-body-md text-body-md text-on-surface placeholder:text-on-surface/10"
-                  />
-                </div>
-
-                <div className="flex flex-col gap-2">
-                  <label className="font-label-sm text-label-sm uppercase text-on-surface/40">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    placeholder="HELLO@EXAMPLE.COM"
-                    className="form-underline py-3 font-body-md text-body-md text-on-surface placeholder:text-on-surface/10"
-                  />
-                </div>
-
-                <div className="flex flex-col gap-2">
-                  <label className="font-label-sm text-label-sm uppercase text-on-surface/40">
-                    Wedding Date
-                  </label>
-                  <input
-                    type="text"
-                    placeholder={`JUNE 12, ${new Date().getFullYear() + 1}`}
-                    className="form-underline py-3 font-body-md text-body-md text-on-surface placeholder:text-on-surface/10"
-                  />
-                </div>
+                {selectFields.map((f) => (
+                  <div key={f.name} className="flex flex-col gap-2">
+                    <label htmlFor={f.name} className={labelClass}>{f.label}</label>
+                    <div className="relative">
+                      <select id={f.name} name={f.name} defaultValue="" className={`${inputClass} bg-surface appearance-none pr-8`}>
+                        <option value="" className="bg-surface">Select one</option>
+                        {f.options.map((o) => (
+                          <option key={o} className="bg-surface">{o}</option>
+                        ))}
+                      </select>
+                      <span className="material-symbols-outlined absolute right-0 top-1/2 -translate-y-1/2 text-on-surface/40 pointer-events-none">
+                        expand_more
+                      </span>
+                    </div>
+                  </div>
+                ))}
 
                 <div className="flex flex-col gap-2 md:col-span-2">
-                  <label className="font-label-sm text-label-sm uppercase text-on-surface/40">
-                    Venue &amp; Location
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="VILLA D'ESTE, LAKE COMO"
-                    className="form-underline py-3 font-body-md text-body-md text-on-surface placeholder:text-on-surface/10"
-                  />
-                </div>
-
-                <div className="flex flex-col gap-2 md:col-span-2">
-                  <label className="font-label-sm text-label-sm uppercase text-on-surface/40">
-                    How did you hear about us?
-                  </label>
-                  <select className="form-underline py-3 font-body-md text-body-md text-on-surface bg-surface appearance-none">
-                    <option className="bg-surface">INSTAGRAM</option>
-                    <option className="bg-surface">FRIEND OR FAMILY</option>
-                    <option className="bg-surface">WEDDING PLANNER</option>
-                    <option className="bg-surface">EDITORIAL / BLOG</option>
-                  </select>
-                </div>
-
-                <div className="flex flex-col gap-2 md:col-span-2">
-                  <label className="font-label-sm text-label-sm uppercase text-on-surface/40">
-                    Tell us about your day
-                  </label>
+                  <label htmlFor="message" className={labelClass}>Tell us about your day</label>
                   <textarea
+                    id="message"
+                    name="message"
                     rows={4}
-                    placeholder="DESCRIBE YOUR VISION, THE MOOD, AND WHAT MATTERS MOST TO YOU..."
-                    className="form-underline py-3 font-body-md text-body-md text-on-surface placeholder:text-on-surface/10 resize-none"
+                    placeholder="YOUR VISION, THE MOOD, AND WHAT MATTERS MOST TO YOU..."
+                    className={`${inputClass} resize-none`}
                   />
                 </div>
               </div>
 
-              <div className="mt-4">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                 <button
                   type="submit"
-                  className="border border-on-surface/30 px-12 py-4 font-label-sm text-label-sm uppercase transition-all duration-500 hover:bg-on-surface hover:text-surface"
+                  className="inline-flex items-center justify-center gap-3 px-12 py-5 bg-on-surface text-surface font-label-sm text-label-sm tracking-widest hover:bg-secondary hover:text-on-secondary transition-colors duration-500"
                 >
+                  <span className="material-symbols-outlined text-[20px]">chat</span>
                   SEND INQUIRY
                 </button>
+                <p className="font-body-md text-[14px] text-on-surface/40">
+                  Opens WhatsApp with your details filled in.
+                </p>
               </div>
             </form>
-          </div>
 
-          <div className="md:col-span-5 lg:col-span-4 mt-stack-md md:mt-0">
-            <div className="flex flex-col gap-stack-sm sticky top-[160px]">
-              <div className="relative aspect-[4/5] overflow-hidden grayscale">
-                <img
-                  src="/gallery/charles-fiona-wedding/09.jpg"
-                  alt="Bride and groom walking hand in hand"
-                  className="object-cover w-full h-full"
-                />
-                <div className="absolute inset-0 border-[1.5rem] border-surface/10 pointer-events-none" />
+            <div className="mt-stack-md pt-stack-sm border-t border-outline-variant/20 grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <div>
+                <p className="font-label-sm text-label-sm text-on-surface/40 mb-3">PREFER TO MESSAGE DIRECTLY?</p>
+                <a
+                  href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-headline-sm text-headline-sm hover:text-secondary transition-colors duration-500"
+                >
+                  {WHATSAPP_DISPLAY}
+                </a>
+                <p className="font-label-sm text-label-sm text-on-surface/40 mt-2">WHATSAPP</p>
               </div>
-
-              <div className="flex flex-col gap-4">
-                <h3 className="font-headline-sm text-headline-sm">Meet Julian Welstein</h3>
-                <p className="font-body-md text-body-md text-on-surface/70 leading-relaxed">
-                  I believe in the beauty of the quiet moments. My approach is observational yet intentional, seeking the atmospheric light and genuine connections that make your wedding day uniquely yours.
-                </p>
-                <p className="font-body-md text-body-md text-on-surface/70 leading-relaxed">
-                  Based in Paris, available for commissions worldwide.
-                </p>
-                <div className="pt-4 border-t border-outline-variant/10 flex flex-col gap-2">
-                  <p className="font-label-sm text-label-sm text-on-surface/40">OFFICE HOURS</p>
-                  <p className="font-label-sm text-label-sm">MON — FRI, 10AM — 6PM CET</p>
-                </div>
+              <div>
+                <p className="font-label-sm text-label-sm text-on-surface/40 mb-3">SEE MORE OF OUR WORK</p>
+                <a
+                  href={FACEBOOK_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 font-headline-sm text-headline-sm hover:text-secondary transition-colors duration-500"
+                >
+                  Facebook
+                  <span className="material-symbols-outlined text-[20px]">arrow_outward</span>
+                </a>
               </div>
             </div>
           </div>

@@ -57,18 +57,22 @@ export default function ContactPage() {
     <div className="bg-surface text-on-surface min-h-screen selection:bg-secondary selection:text-on-secondary">
       <Navbar />
       <main className="md:grid md:grid-cols-2 lg:grid-cols-12">
-        {/* Photo panel with bio, pinned while the form scrolls */}
-        <aside className="relative h-[75vh] min-h-[560px] md:h-screen md:sticky md:top-0 lg:col-span-5 overflow-hidden">
-          <img
-            src="/gallery/charles-fiona-wedding/09.jpg"
-            alt="Bride and groom walking hand in hand"
-            className="absolute inset-0 w-full h-full object-cover grayscale"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/50 to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 px-6 md:px-12 pb-stack-sm md:pb-stack-md">
+        {/* Photo panel with bio. Mobile: framed photo below the navbar with the bio under it.
+            md+: full-height panel pinned while the form scrolls, bio overlaid on the photo. */}
+        <aside className="relative px-6 pt-[112px] md:p-0 md:h-screen md:sticky md:top-0 lg:col-span-5 md:overflow-hidden">
+          <div className="relative aspect-[4/5] md:aspect-auto md:absolute md:inset-0 overflow-hidden">
+            <img
+              src="/gallery/charles-fiona-wedding/09.jpg"
+              alt="Bride and groom walking hand in hand"
+              className="absolute inset-0 w-full h-full object-cover grayscale"
+            />
+            <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-surface via-surface/50 to-transparent" />
+          </div>
+          <div className="relative mt-stack-sm md:mt-0 md:absolute md:inset-x-0 md:bottom-0 md:px-12 md:pb-stack-md">
             <h2 className="font-label-sm text-label-sm text-secondary mb-4">THE PHOTOGRAPHER</h2>
             <p className="font-headline-sm text-headline-sm italic text-white mb-4 max-w-md">
-              I&rsquo;m drawn to the quiet, in-between moments of a wedding day.
+              {/* Non-breaking hyphen keeps "in-between" on one line */}
+              I&rsquo;m drawn to the quiet, in&#8209;between moments of a wedding day.
             </p>
             <p className="font-body-md text-body-md text-on-surface/70 max-w-md mb-6">
               A held glance, a parent&rsquo;s embrace, light falling just right. I observe rather than direct, so your photographs feel honest, natural and unmistakably yours.

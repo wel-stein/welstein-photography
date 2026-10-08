@@ -1,30 +1,7 @@
-import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-
-const galleryItems = [
-  { slug: 'charles-fiona-wedding',        src: '/gallery/charles-fiona-wedding/01.jpg',        category: 'Wedding',  title: 'Charles & Fiona' },
-  { slug: 'vincent-ploy-wedding',         src: '/gallery/vincent-ploy-wedding/01.jpg',         category: 'Wedding',  title: 'Vincent & Ploy' },
-  { slug: 'orcas-christina-wedding',      src: '/gallery/orcas-christina-wedding/01.jpg',      category: 'Wedding',  title: 'Orcas & Christina' },
-  { slug: 'cp-ct-wedding',                src: '/gallery/cp-ct-wedding/01.jpg',                category: 'Wedding',  title: 'CP & CT' },
-  { slug: 'song-fong-hui-hoon-wedding',   src: '/gallery/song-fong-hui-hoon-wedding/01.jpg',   category: 'Wedding',  title: 'Song Fong & Hui Hoon' },
-  { slug: 'anyau-zen-wedding',            src: '/gallery/anyau-zen-wedding/01.jpg',            category: 'Wedding',  title: 'An Yau & Zen' },
-  { slug: 'zack-yih-wedding',             src: '/gallery/zack-yih-wedding/01.jpg',             category: 'Wedding',  title: 'Zack & Yih' },
-  { slug: 'vince-carmen-wedding',         src: '/gallery/vince-carmen-wedding/01.jpg',         category: 'Wedding',  title: 'Vince & Carmen' },
-  { slug: 'cy-ying-shing-wedding',        src: '/gallery/cy-ying-shing-wedding/01.jpg',        category: 'Wedding',  title: 'Chie Yee & Ying Shing' },
-  { slug: 'ken-cherry',                   src: '/gallery/ken-cherry/01.jpg',                   category: 'Wedding',  title: 'Ken & Cherry' },
-  { slug: 'chan-hwen-wedding',             src: '/gallery/chan-hwen-wedding/01.jpg',             category: 'Wedding',  title: 'Chan & Hwen' },
-  { slug: 'keng-long-alice-wedding',      src: '/gallery/keng-long-alice-wedding/01.jpg',      category: 'Wedding',  title: 'Keng Long & Alice' },
-  { slug: 'wedding',                      src: '/gallery/yin-xuan-yong-shen-wedding/01.jpg',   category: 'Wedding',  title: 'Yin Xuan & Yong Shen' },
-  { slug: 'kelvin-shi-yun-wedding',       src: '/gallery/kelvin-shi-yun-wedding/01.jpg',       category: 'Wedding',  title: 'Kelvin & Shi Yun' },
-  { slug: 'ping-fiona-wedding',           src: '/gallery/ping-fiona-wedding/01.jpg',           category: 'Wedding',  title: 'Ping & Fiona' },
-  { slug: 'proposal-by-terry',            src: '/gallery/proposal-by-terry/01.jpg',            category: 'Portrait', title: 'Proposal by Terry' },
-  { slug: 'tan-stacy-rom',                src: '/gallery/tan-stacy-rom/01.jpg',                category: 'Portrait', title: 'Tan & Stacy R.O.M' },
-  { slug: 'boon-chien-xie-pre-wedding',   src: '/gallery/boon-chien-xie-pre-wedding/01.jpg',   category: 'Portrait', title: 'Boon Chien & Xie Pre-Wedding' },
-  { slug: 'kelvin-rom',                   src: '/gallery/kelvin-rom/01.jpg',                   category: 'Portrait', title: 'Kelvin R.O.M' },
-  { slug: 'charity-event-atkulai',        src: '/gallery/charity-event-atkulai/01.jpg',        category: 'Portrait', title: 'Charity Event' },
-  { slug: 'friends-portrait',             src: '/gallery/friends-portrait/01.jpg',             category: 'Portrait', title: 'Portrait' },
-]
+import GalleryCard from '../components/GalleryCard'
+import { galleryItems } from '../data/galleryItems'
 
 export default function GalleryPage() {
   return (
@@ -41,26 +18,8 @@ export default function GalleryPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-          {galleryItems.map((item, i) => (
-            <Link
-              key={i}
-              to={`/gallery/${item.slug}`}
-              className="group relative aspect-[4/3] overflow-hidden bg-surface-container-low transition-all duration-500 border border-white/10 p-2 block"
-            >
-              <img
-                src={item.src}
-                alt={item.title}
-                className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 ease-out"
-              />
-              <div className="absolute inset-0 bg-surface-dim/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-stack-sm">
-                <span className="font-label-sm text-label-sm text-primary uppercase mb-2">
-                  {item.category}
-                </span>
-                <span className="font-headline-sm text-headline-sm text-white">
-                  {item.title}
-                </span>
-              </div>
-            </Link>
+          {galleryItems.map((item) => (
+            <GalleryCard key={item.slug} item={item} />
           ))}
         </div>
 

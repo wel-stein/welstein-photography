@@ -113,8 +113,8 @@ export default function ContactPage() {
             <div className="flex flex-col gap-stack-sm sticky top-[160px]">
               <div className="relative aspect-[4/5] overflow-hidden grayscale">
                 <img
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzoDgl_e-nz_NsGeclTQJ_IHSpuRzboxrttGM2ip27Kkw4f_yzR-_hFvTlZEuU4sc7vsE6tR3HhHf9W-yOyd8J7rOqonR_J9A4WUHs67mR54BALZU9T0UY3a4dAmMutxDe4wTbxTem3LqdA5nGqGBeMWp8HBBU1JM1CWNTVU_SYKX5pQZJa9GSmsR6hKJukhPmXMYvFa4K6nKBLLDKCOUWEIw2JnYJ53s0U4Waa7SENPQwZuANJKhugdBfWFQxE_Oe9IwatkFINUCI"
-                  alt="Portrait of the artist"
+                  src="/gallery/charles-fiona-wedding/09.jpg"
+                  alt="Bride and groom walking hand in hand"
                   className="object-cover w-full h-full"
                 />
                 <div className="absolute inset-0 border-[1.5rem] border-surface/10 pointer-events-none" />

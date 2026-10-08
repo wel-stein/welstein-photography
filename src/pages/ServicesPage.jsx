@@ -78,8 +78,8 @@ export default function ServicesPage() {
             <div className="md:col-span-6 mb-stack-sm md:mb-0">
               <div className="matted-image">
                 <img
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnR2ywqsVB_PZRVt-cIRx0e7GJJ47JoBmM0vOgzoww_XRbVnSYkn-MFR-QekdCiRgz71vv0F7V4pzr4LvwefealOCpADRNf7NW-ttvqHaqkZv_FKdXPOtCFK6lTyGooSTz1zeFiZ_5zyE1XKXXbfP3OPp59tL0LnXSKzSYRjkz9pjYzUAZxsI7Ud1ldRny0uPF80xNIKDyv6OBMJ0dGnyYsHX0pls_dRmzMTeDytdxnL2rRNmauyFfzyIajt6H4xvJgZV9yTyYsU15"
-                  alt="The Experience"
+                  src="/gallery/ken-cherry/06.jpg"
+                  alt="Bride and groom on a sweeping staircase"
                   className="w-full grayscale brightness-90"
                 />
               </div>
@@ -201,8 +201,8 @@ export default function ServicesPage() {
           <div className="relative h-[614px] flex items-center justify-center">
             <div className="absolute inset-0 z-0">
               <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD15eDovFbJpo2ObZ0dh8pIFK3YPZdwAzekBGYXjnvjXJekyW5giDe-hRxGv--WLu0hf5cIFcTE4ktu4KhRHSXFlx_ZDNqzw2spyccM3kkTSqy9LnyTWWC2fdYV2Zcq4bfIXRzV2KhnYsg6IA8oMEFuvNig3oJecQWEYHvV98JVkZRa1ooJ4AhlhFpHiWIpZCIZrEBjLMtAijehGAUXId2xUfiVbvb9QR4hm8758Tj8APQ40y2DS95MSHzUykNi_89kAr8fxiwbxNaE"
-                alt="Reception hall"
+                src="/gallery/keng-long-alice-wedding/04.jpg"
+                alt="Couple entering their wedding banquet"
                 className="w-full h-full object-cover opacity-30 grayscale brightness-50"
               />
             </div>

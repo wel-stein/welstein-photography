@@ -58,7 +58,7 @@ export default function ContactPage() {
                   </label>
                   <input
                     type="text"
-                    placeholder="JUNE 12, 2025"
+                    placeholder={`JUNE 12, ${new Date().getFullYear() + 1}`}
                     className="form-underline py-3 font-body-md text-body-md text-on-surface placeholder:text-on-surface/10"
                   />
                 </div>
